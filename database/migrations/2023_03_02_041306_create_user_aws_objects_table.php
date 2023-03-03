@@ -12,11 +12,12 @@ class CreateUserAwsObjectsTable extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::table('user_aws_objects', function (Blueprint $table) {
+    { 
+        Schema::create('user_aws_objects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('url')->unique();
+            $table->string('name');
+            $table->string('key');
+            $table->string('bucket');
             $table->timestamps();
         });
     }
